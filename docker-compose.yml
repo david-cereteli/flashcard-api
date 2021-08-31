@@ -1,0 +1,33 @@
+version: "3"
+services:
+
+  postgre-container:
+    container_name: psql-container-flashcard-data
+    image: postgres:13.3-alpine
+    ports:
+      - "5433:5432"  #outer:inner port
+    restart: always
+    environment:
+      POSTGRES_DB: flashcard-db
+      POSTGRES_USER: flashcard-user
+      POSTGRES_PASSWORD: flashcard-password
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+
+  flashcard-db:
+    container_name: flashcard-api
+    image: flashcard-postgre-db
+    build: .
+    ports:
+      - "8080:8080"
+    depends_on:
+      - postgre-container
+    environment: # overwrite default settings in application.properties
+      SPRING_DATASOURCE_URL: jdbc:postgresql://postgre-container:5432/flashcard-db # note that this is the INNER port
+      SPRING_DATASOURCE_USERNAME: flashcard-user
+      SPRING_DATASOURCE_PASSWORD: flashcard-password
+
+volumes:
+  pgdata:
+    name: flashcard-data
+    external: false

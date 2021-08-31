@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<entity-mappings version="2.0" xmlns="http://java.sun.com/xml/ns/persistence/orm"
+                 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                 xsi:schemaLocation="http://java.sun.com/xml/ns/persistence/orm
+        http://java.sun.com/xml/ns/persistence/orm_2_0.xsd ">
+
+    <named-native-query name="CardTiming.findMostDueCardInDeck"
+                        result-class="hu.traileddevice.flashcard.model.CardTiming">
+        <query>SELECT * FROM timings INNER JOIN cards ON cards.id = timings.card_id INNER JOIN decks ON decks.id = cards.deck_id WHERE cards.deck_id = :deckId AND ((last_review_date + (repetition_interval * interval '1 day'))\:\:date &lt;= CURRENT_DATE OR repetition_number = 0) ORDER BY last_review_date + (repetition_interval * interval '1 day') LIMIT 1</query>
+    </named-native-query>
+
+</entity-mappings>
