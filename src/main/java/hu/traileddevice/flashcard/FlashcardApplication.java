@@ -13,25 +13,25 @@ import org.springframework.context.annotation.Bean;
 @SpringBootApplication
 public class FlashcardApplication {
 
-	public static void main(String[] args) {
-		SpringApplication.run(FlashcardApplication.class, args);
-	}
+    public static void main(String[] args) {
+        SpringApplication.run(FlashcardApplication.class, args);
+    }
 
-	@Bean
-	public ModelMapper getModelMapper() {
-		ModelMapper modelMapper = new ModelMapper();
-		modelMapper.addConverter(new CardToCardOutputConverter());
-		return modelMapper;
-	}
+    @Bean
+    public ModelMapper getModelMapper() {
+        ModelMapper modelMapper = new ModelMapper();
+        modelMapper.addConverter(new CardToCardOutputConverter());
+        return modelMapper;
+    }
 
-	@Bean
-	public OpenAPI customOpenAPI(@Value("${springdoc.version}") String appVersion) {
-		return new OpenAPI()
-				.components(new Components())
-				.info(new Info()
-								.title("Flashcard REST API")
-								.version(appVersion)
-								.description("Operations for creating and memorizing flashcards")
-				);
-	}
+    @Bean
+    public OpenAPI customOpenAPI(@Value("${springdoc.version}") String appVersion) {
+        return new OpenAPI()
+                .components(new Components())
+                .info(new Info()
+                        .title("Flashcard REST API")
+                        .version(appVersion)
+                        .description("Operations for creating and memorizing flashcards")
+                );
+    }
 }

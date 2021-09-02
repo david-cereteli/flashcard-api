@@ -26,7 +26,7 @@ public class UserService {
     }
 
     public List<UserOutput> findAll() {
-        return modelMapper.map(userRepository.findAll(), new TypeToken<List<UserOutput>>(){}.getType());
+        return modelMapper.map(userRepository.findAll(), new TypeToken<List<UserOutput>>() {}.getType());
     }
 
     public UserOutput save(UserCreateInput userCreateInput) {

@@ -35,8 +35,7 @@ public class CardService {
     }
 
     public List<CardOutput> findAll() {
-        return modelMapper.map(cardRepository.findAll(), new TypeToken<List<CardOutput>>() {
-        }.getType());
+        return modelMapper.map(cardRepository.findAll(), new TypeToken<List<CardOutput>>() {}.getType());
     }
 
     public CardOutput save(Long deckId, CardCreateInput cardCreateInput) {

@@ -4,7 +4,6 @@ import hu.traileddevice.flashcard.controller.CardController;
 import hu.traileddevice.flashcard.controller.DeckController;
 import hu.traileddevice.flashcard.dto.card.CardOutput;
 import hu.traileddevice.flashcard.dto.card.CardOutputModel;
-import hu.traileddevice.flashcard.dto.deck.DeckOutput;
 import org.springframework.hateoas.CollectionModel;
 import org.springframework.hateoas.server.mvc.RepresentationModelAssemblerSupport;
 import org.springframework.stereotype.Component;

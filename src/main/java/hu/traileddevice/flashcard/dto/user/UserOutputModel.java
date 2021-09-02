@@ -1,15 +1,12 @@
 package hu.traileddevice.flashcard.dto.user;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
-import com.fasterxml.jackson.annotation.JsonRootName;
 import hu.traileddevice.flashcard.dto.deck.DeckOfUserOutputModel;
-import hu.traileddevice.flashcard.validation.GmailValidator;
 import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.*;
 import org.springframework.hateoas.RepresentationModel;
 import org.springframework.hateoas.server.core.Relation;
 
-import javax.validation.constraints.Size;
 import java.util.List;
 
 @Getter

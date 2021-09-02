@@ -43,7 +43,7 @@ public class LearnService {
         return modelMapper.map(optionalCard.get(), AnswerOutput.class);
     }
 
-   public CardOutput updateTiming(Long cardId, Difficulty difficulty) {
+    public CardOutput updateTiming(Long cardId, Difficulty difficulty) {
         Optional<CardTiming> optionalCardTiming = cardTimingRepository.findByCardId(cardId);
         if (optionalCardTiming.isEmpty())
             throw new QueriedDataDoesNotExistException("Unable to find card with id: " + cardId);
@@ -64,6 +64,7 @@ public class LearnService {
     /**
      * Calculates spaced repetition timings of a CardTiming entity based on SuperMemo's SM-2 algorithm.
      * See <a href="https://en.wikipedia.org/wiki/SuperMemo#Description_of_SM-2_algorithm">https://en.wikipedia.org/wiki/SuperMemo#Description_of_SM-2_algorithm</a>
+     *
      * @param cardTiming the CardTiming object to update timings of
      * @param difficulty the perceived difficulty of the question
      */

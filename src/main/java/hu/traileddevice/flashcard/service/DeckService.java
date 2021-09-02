@@ -29,8 +29,7 @@ public class DeckService {
     }
 
     public List<DeckOutput> findAll() {
-        return modelMapper.map(deckRepository.findAll(), new TypeToken<List<DeckOutput>>() {
-        }.getType());
+        return modelMapper.map(deckRepository.findAll(), new TypeToken<List<DeckOutput>>() {}.getType());
     }
 
     public DeckOutput save(Long userId, DeckCreateInput deckCreateInput) {

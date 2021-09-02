@@ -8,9 +8,7 @@ import hu.traileddevice.flashcard.dto.learn.AnswerOutputModel;
 import hu.traileddevice.flashcard.dto.learn.QuestionOutputModel;
 import hu.traileddevice.flashcard.dto.user.UserCreateInput;
 import hu.traileddevice.flashcard.dto.user.UserOutputModel;
-import hu.traileddevice.flashcard.model.Card;
 import hu.traileddevice.flashcard.model.CardTiming;
-import hu.traileddevice.flashcard.model.Difficulty;
 import hu.traileddevice.flashcard.repository.CardTimingRepository;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -21,7 +19,10 @@ import org.springframework.boot.test.mock.mockito.SpyBean;
 import org.springframework.boot.test.web.client.TestRestTemplate;
 import org.springframework.boot.web.server.LocalServerPort;
 import org.springframework.hateoas.mediatype.problem.Problem;
-import org.springframework.http.*;
+import org.springframework.http.HttpMethod;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
 import org.springframework.test.annotation.DirtiesContext;
 import org.springframework.test.context.ActiveProfiles;
 
@@ -30,7 +31,6 @@ import java.time.LocalDateTime;
 import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Optional;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.Mockito.times;
@@ -92,7 +92,7 @@ class LearnControllerIT {
 
         QuestionOutputModel questionOutputModel = questionOutputModelResponseEntity.getBody();
 
-        assertEquals(requestUrl , questionOutputModel.getLink("self").get().toUri().toString());
+        assertEquals(requestUrl, questionOutputModel.getLink("self").get().toUri().toString());
         assertEquals(cards.get(0).getFrontContent(), questionOutputModel.getFrontContent());
     }
 
@@ -121,7 +121,7 @@ class LearnControllerIT {
 
         QuestionOutputModel questionOutputModel = questionOutputModelResponseEntity.getBody();
 
-        assertEquals(requestUrl , questionOutputModel.getLink("self").get().toUri().toString());
+        assertEquals(requestUrl, questionOutputModel.getLink("self").get().toUri().toString());
         assertEquals(cards.get(0).getFrontContent(), questionOutputModel.getFrontContent());
     }
 
@@ -138,8 +138,8 @@ class LearnControllerIT {
 
         Problem problem = problemResponseEntity.getBody();
 
-        assertEquals("Queried data does not exist" , problem.getTitle());
-        assertEquals(HttpStatus.NOT_FOUND , problem.getStatus());
+        assertEquals("Queried data does not exist", problem.getTitle());
+        assertEquals(HttpStatus.NOT_FOUND, problem.getStatus());
         assertEquals("No due cards exist", problem.getDetail());
     }
 
@@ -179,8 +179,8 @@ class LearnControllerIT {
 
         Problem problem = problemResponseEntity.getBody();
 
-        assertEquals("Input constraint violation" , problem.getTitle());
-        assertEquals(HttpStatus.BAD_REQUEST , problem.getStatus());
+        assertEquals("Input constraint violation", problem.getTitle());
+        assertEquals(HttpStatus.BAD_REQUEST, problem.getStatus());
         assertEquals("[Deck id must be positive]", problem.getDetail());
     }
 

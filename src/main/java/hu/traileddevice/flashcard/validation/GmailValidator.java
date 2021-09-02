@@ -12,10 +12,12 @@ import java.lang.annotation.*;
 @ReportAsSingleViolation
 @Documented
 @Constraint(validatedBy = {})
-@Target( { ElementType.METHOD, ElementType.FIELD, ElementType.ANNOTATION_TYPE })
+@Target({ElementType.METHOD, ElementType.FIELD, ElementType.ANNOTATION_TYPE})
 @Retention(RetentionPolicy.RUNTIME)
 public @interface GmailValidator {
     String message() default "Please provide a valid Google mail address";
+
     Class<?>[] groups() default {};
+
     Class<? extends Payload>[] payload() default {};
 }

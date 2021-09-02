@@ -1,7 +1,6 @@
 package hu.traileddevice.flashcard.dto.user;
 
 import hu.traileddevice.flashcard.dto.deck.DeckOutput;
-import hu.traileddevice.flashcard.validation.GmailValidator;
 import lombok.Getter;
 import lombok.Setter;
 

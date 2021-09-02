@@ -59,10 +59,10 @@ public class DeckOutputModelAssembler extends RepresentationModelAssemblerSuppor
 
         return cards.stream()
                 .map(cardOutput -> CardOfDeckOutputModel
-                                .builder()
-                                .id(cardOutput.getId())
-                                .frontContent(cardOutput.getFrontContent())
-                                .build()
+                        .builder()
+                        .id(cardOutput.getId())
+                        .frontContent(cardOutput.getFrontContent())
+                        .build()
                 )
                 .collect(Collectors.toList());
 

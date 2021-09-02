@@ -1,7 +1,6 @@
 package hu.traileddevice.flashcard.dto.deck;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
-import hu.traileddevice.flashcard.validation.GmailValidator;
 import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.*;
 import org.springframework.hateoas.RepresentationModel;
