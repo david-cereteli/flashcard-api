@@ -3,7 +3,7 @@ services:
 
   postgre-container:
     container_name: psql-container-flashcard-data
-    image: postgres:13.5-alpine
+    image: postgres:13.6-alpine
     ports:
       - "5433:5432"  #outer:inner port
     restart: always
