@@ -132,7 +132,7 @@ The data saved in the database is stored in a volume - named `flashcard-data` - 
 * **[Springdoc OpenAPI HATEOAS](https://mvnrepository.com/artifact/org.springdoc/springdoc-openapi-hateoas/1.5.10) 1.5.10**
 * **[Spring Boot Starter Test](https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-test/2.5.3) 2.5.3**
 * **[Spring Boot DevTools](https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-devtools/2.5.3) 2.5.3**
-* **[PostgreSQL JDBC Driver](https://mvnrepository.com/artifact/org.postgresql/postgresql/42.2.23) 42.3.3**
+* **[PostgreSQL JDBC Driver](https://mvnrepository.com/artifact/org.postgresql/postgresql/42.4.1) 42.4.1**
 * **[Project Lombok](https://mvnrepository.com/artifact/org.projectlombok/lombok/1.18.20) 1.18.20**
 * **[ModelMapper](https://mvnrepository.com/artifact/org.modelmapper/modelmapper/2.4.4) 2.4.4**
 * **[H2 Database Engine](https://mvnrepository.com/artifact/com.h2database/h2/1.4.200) 1.4.200**
